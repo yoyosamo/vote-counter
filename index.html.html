@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vote Counter</title>
+	<!-- Load the stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <!-- Load the Google Charts API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <!-- Load the JavaScript -->
+    <script src="script.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<h1 id="top">Vote Count<span id="scroll_to_result" style="text-align:center; margin-bottom:5px; display:none;"><button onClick="document.getElementById('results').scrollIntoView(true);"><em>Click or scroll to view result</em></button></span></h1>
+    
+    <div class="div1">
+    
+    	<!-- Which voting system should be used -->
+    	Which voting system should be used?<br>
+    	<select name="votesys" id="votesys" onChange="votesys()">
+        	<option value="">&nbsp;</option>
+           	<option value="sys_plur">Plurality</option>
+			<option value="sys_ir">Instant-Runoff</option>
+ 		</select>&nbsp;<button onClick="vis('info');" title="Click to display more info">?</button><br>
+        
+        <div class="info" id="info" style="display:none">
+        	<em><span style="font-size:larger">Which to choose?</span></em><br>
+            <li><em><strong>Plurality:</strong> Also known as</em> first-past-the-post <em>or</em> single-choice voting <small><a href="https://en.wikipedia.org/wiki/Plurality_voting_system">[More]</a></small></li>
+            <li><em><strong>Instant-Runoff:</strong> Also known as the </em>alternative vote<em> or</em> preferential voting <small><a href="https://en.wikipedia.org/wiki/Instant-runoff_voting">[More]</a></small></li>
+            <br><strong>Instant-runoff is slightly more complex to count, but a much fairer outcome.</strong>
+        </div>
+        
+        <!-- Plurality voting system -->
+        <div class="plur_vote" id="plur_vote" style="display:none;text-align:center;">
+        <form name="plur_vote_form" id="plur_vote_form" action="javascript:void(0);" autocomplete="off">
+        	<br><table class="center" id="plur_vote_table">
+            <tr>
+            <th>Candidate Name</th>
+            <th>Vote Count</th>
+            <th class="blank_cell"></th>
+            </tr>
+            <tr id="plur_can0_row">
+            <td><input type="text" name="plur_can0_name" id="plur_can0_name" size="15"></td>
+            <td><input type="number" name="plur_can0_round0" id="plur_can0_round0"></td>
+            <td class="blank_cell"></td>
+            </tr>
+            <tr class="blank_cell2">
+            <td class="cell" colspan="2"><button type="button" onClick="plur_vote_plus()" title="Click to add more candidates">+</button></td>
+            <td></td>
+            </tr>
+            </table><br>
+            <button onClick="plur_vote_submit()">Submit <strong>Plurality</strong> Vote</button>
+        </form>
+        </div>
+        
+        <!-- Instant-Runoff voting system -->        
+        <div class="ir_vote" id="ir_vote" style="display:none">
+        <form name="ir_vote_form" id="ir_vote_form" action="javascript:void(0);" autocomplete="off">
+        	<br><table class="center" id="ir_vote_table">
+            <tr>
+            <th>Candidate Name</th>
+            <th>Vote Count</th>
+            <th id="ir_table_pcent_head" class="blank_cell"></th>
+            </tr>
+            <tr id="ir_can0_row">
+            <td><input type="text" name="ir_can0_name" id="ir_can0_name" size="15"></td>
+            <td><input type="number" name="ir_can0_round0" id="ir_can0_round0"></td>
+            <td class="blank_cell"></td>
+            </tr>
+            <tr class="blank_cell2" id="ir_plus_row">
+            <td class="cell" colspan="2"><button type="button" onClick="ir_vote_plus()" title="Click to add more candidates">+</button></td>
+            <td></td>
+            </tr>
+            </table><br>
+            <button onClick="ir_vote_submit()">Submit <strong>Instant-Runoff</strong> Vote</button>
+        </form>
+        </div>
+    </div>
+	<div class="results" id="results" style="display:none">
+    	<h3>Results</h3>
+        <span id="output"></span>
+        
+    	<!--Div that will hold the chart-->
+    	<div class="chart_div" id="chart_div" style="display:none"></div>
+    </div>
+    <span id="scroll_to_top" style="text-align:center; margin-bottom:5px; display:none;"><button onClick="document.getElementById('top').scrollIntoView(true);"><em>Click to return to top</em></button></span>
+	<div style="position: absolute; bottom: 0; right: 0; width: 150px; text-align:right; font-style:italic;">
+	Sam Smith &copy; 2016
+  </div>
+</body>
+</html>

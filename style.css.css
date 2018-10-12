@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif	;
+	background-color:#E0E0E0;
+	color:black;
+	padding:20px;
+	text-align:center;
+}
+h1{
+	text-align:center;
+	font-style:italic;
+	padding:5px;
+	margin:0px;
+}
+h3{
+	padding: 0px;
+	margin: 0px;
+}
+.div1{
+	display: inline-block;
+	align-self: center;
+	border:thin #000000 solid;
+	padding:10px;
+	width:auto;
+	height:auto;	
+	text-align:center;
+	margin:0 auto;
+}
+.results{
+	align-self: center;
+	border:thin #000000 solid;
+	width: 420px;
+	height:auto;
+	padding-bottom:10px;
+	text-align:center;
+	margin:0 auto;
+}
+.info{
+	margin-top:5px;
+	border:thin #000000 solid;
+	padding: 5px;
+}
+
+a{
+	color: grey; /* Make links look nice */
+}
+table.center {
+	margin-left:auto; 
+	margin-right:auto;
+}
+table {
+	border-collapse: collapse;
+	border: none;
+}
+th, td {
+	border: 1px solid black;
+	background-color: white;
+	color: black;
+}
+.cell{
+	border: 1px solid black;
+	background-color: white;
+	color: black;
+}
+.blank_cell{
+	background-color: #E0E0E0;
+	width: 25px;
+	border: 1px solid #E0E0E0;
+	border-bottom:none;
+}
+.blank_cell2 td:not(.cell){ /* Any cells in the row with class blank_cell2 that don't have the class cell */
+	background-color: #E0E0E0;
+	width: 25px;
+	border: 1px solid #E0E0E0;
+}
+.blank_cell3{
+	background-color: #E0E0E0;
+	width: 25px;
+	border: 1px solid #E0E0E0;
+	border-bottom:none;
+	border-right:none;
+}
+input[type="number"] {
+	width:80px; /* Make the number inputs thinner */
+}
+.chart_div{
+	width: 95%;
+	margin: 0 auto; 
+}
+.small {
+    line-height: 40%;
+	margin-top:3px; 
+}
